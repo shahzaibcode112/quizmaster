@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Quiz from './pages/Quiz';
 import Results from './pages/Results';
 import Leaderboard from './pages/Leaderboard';
+import AIQuiz from './pages/AIQuiz';
 
 export default function App() {
   const { isDark } = useQuiz();
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/results" element={<Results />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/ai-quiz" element={<AIQuiz />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </AnimatePresence>

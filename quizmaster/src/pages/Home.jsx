@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useQuiz } from '../context/QuizContext';
 import { fetchCategories, fetchQuestions } from '../utils/api';
 import { shuffleArray } from '../utils/helpers';
+import { Link } from 'react-router-dom';
 
 const DIFFICULTIES = [
   { value: 'easy', label: 'Easy', color: 'text-green-400', icon: '😊' },
@@ -241,6 +242,27 @@ export default function Home() {
               '🚀 Start Quiz'
             )}
           </motion.button>
+
+          {/* AI Quiz button */}
+          <div className="relative">
+            <div className="absolute -inset-px rounded-xl bg-linear-to-r from-violet-500 via-fuchsia-500 to-blue-500 opacity-70 blur-sm" />
+            <Link to="/ai-quiz" className="relative block">
+              <motion.div
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className={`w-full py-4 rounded-xl font-bold text-base text-center transition-all duration-200 flex items-center justify-center gap-2 ${
+                  isDark
+                    ? 'bg-gray-900 text-white border border-white/10'
+                    : 'bg-white text-gray-900 border border-gray-200'
+                }`}
+              >
+                <span>🤖 AI Quiz — Upload Your Notes</span>
+                <span className="text-xs font-bold px-1.5 py-0.5 rounded-md bg-linear-to-r from-violet-500 to-blue-500 text-white ml-1">
+                  NEW
+                </span>
+              </motion.div>
+            </Link>
+          </div>
         </motion.div>
 
         {/* Footer note */}
